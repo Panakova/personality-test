@@ -7,7 +7,30 @@ ScreenManager:
     TestScreenV:
     TestScreenM:
     GoalsScreen:
+    MyGoalsScreen:
     HistoryScreen:
+    
+    BehaviorModel1:
+    BehaviorModel2:
+    BehaviorModel3:
+    BehaviorModel4:
+    BehaviorModel12:
+    BehaviorModel13:
+    BehaviorModel14:
+    BehaviorModel21:
+    BehaviorModel23:
+    BehaviorModel24:
+    BehaviorModel31:
+    BehaviorModel32:
+    BehaviorModel34:
+    BehaviorModel41:
+    BehaviorModel42:
+    BehaviorModel43:
+    BehaviorModel123:
+    BehaviorModel124:
+    BehaviorModel134:
+    BehaviorModel234:
+    
 
 <HomeScreen>:
     name: "home"
@@ -51,7 +74,6 @@ ScreenManager:
         id: check
         group: "check"            
 
-
 <MotivationScreenMe>:
     name: "motivationme"
     nazov_testu: nazov_testu
@@ -94,7 +116,7 @@ ScreenManager:
         on_release: 
             root.manager.current = "testv"
             root.manager.transition.direction = 'up'
-        on_press: root.test_name()
+        on_press: root.add_test()
 
     MDFloatingActionButtonSpeedDial:
         callback: root.main_navigate
@@ -241,21 +263,29 @@ ScreenManager:
                     text: "rád sa delím s inými"
                     font_size: (root.width**2 + root.height**2) / 13**4
                     text_of_the_option: "s"
-                    on_press: root.plus()
+                    on_press: 
+                        root.plus()
+                        root.s()
                 TestConfirm:
                     text: "som bezproblemový spoločník"
                     font_size: (root.width**2 + root.height**2) / 13**4
-                    on_press: root.plus()
+                    on_press: 
+                        root.plus()
+                        root.n()
                     text_of_the_option: "n"
                 TestConfirm:    
                     text: "chcem zvíťaziť"
                     font_size: (root.width**2 + root.height**2) / 13**4
-                    on_press: root.plus()
+                    on_press: 
+                        root.plus()
+                        root.d()
                     text_of_the_option: "d"
                 TestConfirm:
                     text: "veľa sa smejem"
                     font_size: (root.width**2 + root.height**2) / 13**4
-                    on_press: root.plus()
+                    on_press: 
+                        root.plus()
+                        root.n()
                     text_of_the_option: "n"
 
                 OneLineListItem:
@@ -1489,100 +1519,273 @@ ScreenManager:
         pos_hint: { "center_x" :0.5, "center_y":0.2}
 
 <MeContent>:
-    orientation: "vertical"
+    ciel1: ciel1
     adaptive_height: True
+    orientation: 'vertical'
+    padding: dp(20)
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+    
+    MDLabel: 
+        theme_text_color: "Custom"
+        text_color: 0.96,0.79,0.09, 1
+        text: "Aký  model správania mi vyšiel?"
+    MDTextFieldRect:
+        id: model
+        multiline: True
+        size_hint: 0.9,None
+        pos_hint: {"center_x": .5}
 
-    MDTextField:
-        id: ciel
-        hint_text:"Zadaj ciel"
-        helper_text: "napr. ciel 1"
-        helper_text_mode: "on_focus"
+    MDLabel: 
+        text: "Kde a ako môžem využiť svoje prednosti už dnes?"
+    MDTextFieldRect:
+        id: ciel1
+        multiline: True
+        size_hint: 0.9,None
+        hint_text: "Cieľ č. 1"
+        pos_hint: {"center_x": .5}
         
-    TwoLineIconListItem:
-        text: "kivydevelopment@gmail.com"
-        secondary_text:"bla"
+    MDLabel: 
+        text: "Ako sa môžem rozvíjať?"
+    MDTextFieldRect:
+        id: ciel2
+        multiline: True
+        size_hint: 0.9,None
+        hint_text: "Cieľ č. 2"
+        pos_hint: {"center_x": .5}
+        
+    MDLabel: 
+        text: "Čo nové som o sebe zistil?"
+    MDTextFieldRect:
+        id: ciel3
+        multiline: True
+        size_hint: 0.9,None
+        hint_text: "Cieľ č. 3"
+        pos_hint: {"center_x": .5}
+        
 
-        IconLeftWidget:
-            icon: "email"
-            
 <TeamContent>:
-    orientation: "vertical"
     adaptive_height: True
-
-    MDTextField:
-        id: ciel
-        hint_text:"Zadaj ciel"
-        helper_text: "napr. ciel 1"
-        helper_text_mode: "on_focus"
+    orientation: 'vertical'
+    
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+    
         
     MDTextField:
-        hint_text: "Name"
-        mode: "fill"
-        fill_color: 0, 0, 0, .4
-        icon_right: "arrow-down-drop-circle-outline"
-        icon_right_color: app.theme_cls.primary_color
+        id: ciel4
+        multiline: True
+        hint_text: "Ako môžem svojími prednosťami pomocť?"
+        helper_text: "Cieľ č. 4"
+        helper_text_mode: "persistent"
         
     MDTextField:
-        hint_text: "Name"
-        mode: "rectangle"
-        icon_right: "arrow-down-drop-circle-outline"
-        icon_right_color: app.theme_cls.primary_color
-            
+        id: ciel5
+        multiline: True
+        hint_text: "Ako viem vytvoriť príjemnejšie prostredie pre prácu?"
+        helper_text: "Cieľ č. 5"
+        helper_text_mode: "persistent"
+        
+    MDTextField:
+        id: ciel6
+        multiline: True
+        hint_text: "?"
+        helper_text: "Cieľ č. 6"
+        helper_text_mode: "persistent"
+        
 <WeContent>:
-    orientation: "vertical"
     adaptive_height: True
-
-    MDTextField:
-        id: ciel
-        hint_text:"Zadaj ciel"
-        helper_text: "napr. ciel 1"
-        helper_text_mode: "on_focus"
+    orientation: 'vertical'
+    
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+    
         
     MDTextField:
-        hint_text: "Name"
-        mode: "fill"
-        fill_color: 0, 0, 0, .4
-        icon_right: "arrow-down-drop-circle-outline"
-        icon_right_color: app.theme_cls.primary_color
+        id: ciel7
+        multiline: True
+        hint_text: "Čo na mne je atraktívne?"
+        helper_text: "Cieľ č. 7"
+        helper_text_mode: "persistent"
         
     MDTextField:
-        hint_text: "Name"
-        mode: "rectangle"
-        icon_right: "arrow-down-drop-circle-outline"
-        icon_right_color: app.theme_cls.primary_color
-            
+        id: ciel8
+        multiline: True
+        hint_text: "?"
+        helper_text: "Cieľ č. 8"
+        helper_text_mode: "persistent"
+        
+    MDTextField:
+        id: ciel9
+        multiline: True
+        hint_text: "?"
+        helper_text: "Cieľ č. 9"
+        helper_text_mode: "persistent"
+        
+<AContent>:
+    adaptive_height: True
+    orientation: 'vertical'
+    
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+    
+        
+    MDTextField:
+        id: ciel10
+        multiline: True
+        hint_text: "Ciele, ktoré som si zadefinoval, môžem dosiahnuť týmito krokmi:"
+        helper_text: "Cieľ č. 10"
+        helper_text_mode: "persistent"
+        
+    MDTextField:
+        id: ciel11
+        multiline: True
+        hint_text: "Ako vytvorím pre mňa motivujúce prostredie?"
+        helper_text: "Cieľ č. 11"
+        helper_text_mode: "persistent"
+        
+    MDTextField:
+        id: ciel12
+        multiline: True
+        hint_text: "Čo pre to muším urobiť?"
+        helper_text: "Cieľ č. 12"
+        helper_text_mode: "persistent"   
+     
+        
 <GoalsScreen>:
     name: "goals"
     
-    MDCard:
-        id: mecard
-        orientation: "vertical"
-        size_hint: 0.95, None
-        height: self.minimum_height
-        pos_hint: {"center_x": .5, "center_y": .8}
+    ScrollView:
+        MDList:
+            id: cards
         
-    MDCard:
-        id: teamcard
-        orientation: "vertical"
-        size_hint: 0.95, None
-        height: self.minimum_height
-        pos_hint: {"center_x": .5, "center_y": .5}
+    MDRoundFlatIconButton:
+        text: "technika SMART" 
+        icon: 'lightbulb-on-outline'
+        theme_text_color: "Custom"
+        text_color: app.theme_cls.accent_color
+        pos_hint: {"center_y": .2}
+        on_press: root.show_smart()
         
-    MDCard:
-        id: wecard
-        orientation: "vertical"
-        size_hint: 0.95, None
-        height: self.minimum_height
-        pos_hint: {"center_x": .5, "center_y": .2}
-
-                
+    MDFloatingActionButton:
+        icon: "play-circle-outline"
+        size_hint: None, None
+        pos_hint: {"center_x" :0.5, "center_y":0.08}
+        md_bg_color: app.theme_cls.accent_color
+        on_release: root.submit()
+              
+               
     MDFloatingActionButtonSpeedDial:
         callback: root.main_navigate
         data: 
             {'home': 'Domov',
             'lightning-bolt': 'Ciele',
             'notebook': 'Moje testy'}
+<MyGoalsScreen>:
+    name: "mygoals"  
+    
+    MDToolbar:
+        title: "Moje ciele"
+        md_bg_color: app.theme_cls.accent_color
+        pos_hint: {"center_x": .5, "center_y": .95}  
+        right_action_items: [['lightning-bolt', lambda x: None]] 
+    
+    ScrollView:
+        pos_hint: {"center_x": .5, "center_y": .45}  
+        size_hint_x: 1
+        size_hint_y: .9
+        do_scroll_x: False
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: dp(500)
+            BoxLayout:
+                MDLabel:
+                    font_style: 'Body1'
+                    theme_text_color: 'Primary'
+                    text: "Typ osobností:"
+                    halign: 'left'
+                MDLabel:
+                    font_style: 'Body2'
+                    theme_text_color: 'Primary'
+                    text: "Body2 label"
+                    halign: 'center'
             
+            BoxLayout:
+                MDLabel:
+                    font_style: 'Body1'
+                    theme_text_color: 'Primary'
+                    text: "ciel1:"
+                    halign: 'left'
+                MDLabel:
+                    font_style: 'Body2'
+                    theme_text_color: 'Primary'
+                    text: "odpoveed.."
+                    halign: 'center'
+            BoxLayout:
+                MDLabel:
+                    font_style: 'Body1'
+                    theme_text_color: 'Primary'
+                    text: "ciel1:"
+                    halign: 'left'
+                MDLabel:
+                    font_style: 'Body2'
+                    theme_text_color: 'Primary'
+                    text: "odpoveed.."
+                    halign: 'center'
+            BoxLayout:
+                MDLabel:
+                    font_style: 'Body1'
+                    theme_text_color: 'Primary'
+                    text: "ciel1:"
+                    halign: 'left'
+                MDLabel:
+                    font_style: 'Body2'
+                    theme_text_color: 'Primary'
+                    text: "odpoveed.."
+                    halign: 'center'
+            BoxLayout:
+                MDLabel:
+                    font_style: 'Body1'
+                    theme_text_color: 'Primary'
+                    text: "ciel1:"
+                    halign: 'left'
+                MDLabel:
+                    font_style: 'Body2'
+                    theme_text_color: 'Primary'
+                    text: "odpoveed.."
+                    halign: 'center'
+            BoxLayout:
+                MDLabel:
+                    font_style: 'Body1'
+                    theme_text_color: 'Primary'
+                    text: "ciel1:"
+                    halign: 'left'
+                MDLabel:
+                    font_style: 'Body2'
+                    theme_text_color: 'Primary'
+                    text: "odpoveed.."
+                    halign: 'center'
+                    
+    MDFillRoundFlatButton:
+        pos_hint:{ "center_x" :0.5, "center_y": 0.1} 
+        size_hint: None, None
+        text: "Upraviť"
+        on_press: 
+            root.manager.current = "goals"
+            root.manager.transition.direction = 'up'
+                    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+                
 <Content>
     adaptive_height: True
     orientation: 'vertical'
@@ -1593,24 +1796,19 @@ ScreenManager:
 
     IconRightWidget:
         icon: 'delete'
-        on_press: root.delete_item(root)
+        #on_press: root.sh_delete_item()
         
 #:import Clock kivy.clock.Clock
 #:import partial functools.partial
-            
+
+       
 <HistoryScreen>:
     name: "history"
     
     ScrollView:
         MDList:
             id: panel_container
-            Widget:
-                size_hint_y: None
-                height: 100
-            Widget:
-                size_hint_y: None
-                height: 100
-                
+                      
     MDFillRoundFlatButton: 
         text:"Pridaj test"
         pos_hint:{ "center_x" :0.5, "center_y": 0.5} 
@@ -1629,16 +1827,196 @@ ScreenManager:
             {'home': 'Domov',
             'lightning-bolt': 'Ciele',
             'notebook': 'Moje testy'}
+            
 
-        
+            
+<BehaviorModel3>:
+    name: "3"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel4>:
+    name: "4"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel12>:
+    name: "12"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}                                    
+
+<BehaviorModel13>:
+    name: "13"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel14>:
+    name: "14"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel21>:
+    name: "21"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel23>:
+    name: "23"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel24>:
+    name: "24"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}                                    
+
+<BehaviorModel31>:
+    name: "31"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel32>:
+    name: "32"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel34>:
+    name: "34"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel41>:
+    name: "41"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel42>:
+    name: "42"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}                                    
+
+<BehaviorModel43>:
+    name: "43"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel123>:
+    name: "123"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel124>:
+    name: "124"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel134>:
+    name: "134"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
+            
+<BehaviorModel234>:
+    name: "234"
+    
+    MDFloatingActionButtonSpeedDial:
+        callback: root.main_navigate
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}                                    
+
+
+<MainApp@Screen>:        
+    MDFloatingActionButtonSpeedDial:
+        data: 
+            {'home': 'Domov',
+            'lightning-bolt': 'Ciele',
+            'notebook': 'Moje testy'}
 """
 
-testname_helper = """
 
-MDTextField:
-        hint_text:"Zadaj názov testu"
-        helper_text: "napr. Test 1"
-        helper_text_mode: "on_focus"
-        pos_hint: { "center_x" :0.5, "center_y":0.3}
-        size_hint: 0.8,0.1   
-"""
